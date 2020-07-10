@@ -94,11 +94,20 @@ def turn_right():
     msg.angular.z = -1 
     return msg
 
+def stop():
+    msg = Twist()
+    msg.linear.x = 0.0
+    msg.angular.z = 0.0 
+    for x in range(2):
+        pub_.publish(msg)
+        rospy.loginfo('Stopping robot')
+
 
 def main():
     global pub_
 
     rospy.init_node('reading_laser')
+    rospy.on_shutdown(stop)
     pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     sub = rospy.Subscriber('/kobuki/laser/scan', LaserScan, clbk_laser)
 
@@ -117,6 +126,8 @@ def main():
         pub_.publish(msg)
 
         rate.sleep()
+    
+    
 
 
 if __name__ == '__main__':
