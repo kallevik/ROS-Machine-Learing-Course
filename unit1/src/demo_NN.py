@@ -22,10 +22,10 @@ state_dict_ = {
 
 def load_weights():
     
-    W2 = np.load('/home/user/catkin_ws/src/weights_demo/w2.npy')
-    b2 = np.load('/home/user/catkin_ws/src/weights_demo/b2.npy')
-    W = np.load('/home/user/catkin_ws/src/weights_demo/w.npy')
-    b = np.load('/home/user/catkin_ws/src/weights_demo/b.npy')
+    W2 = np.load('/home/user/catkin_ws/src/machine_learning_course/weights_demo/w2.npy')
+    b2 = np.load('/home/user/catkin_ws/src/machine_learning_course/weights_demo/b2.npy')
+    W = np.load('/home/user/catkin_ws/src/machine_learning_course/weights_demo/w.npy')
+    b = np.load('/home/user/catkin_ws/src/machine_learning_course/weights_demo/b.npy')
     
     return W2,b2,W,b
 
